@@ -4,6 +4,7 @@ from .models import Account, FamilyMember
 class RegistrationSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(style={"input_type": "password"}, write_only=True)
     age = serializers.ReadOnlyField() 
+    
     class Meta:
         model = Account
         fields = ["id","email", "username", "password", "password2", "first_name", "last_name","age","gender",'personal_image','date_of_birth']

@@ -39,17 +39,13 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-    GENDER_CHOICES = [
-        ('M', 'Male'),
-        ('F', 'Female'),
-    ]
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     date_of_birth = models.DateField(default='2000-03-15')
-    personal_image = models.ImageField(upload_to='users_images/')
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    personal_image = models.ImageField(upload_to='user_images/', null=True, blank=True)
+    gender = models.CharField(max_length=10)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
