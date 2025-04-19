@@ -31,7 +31,7 @@ class BloodTest_Serializer(serializers.ModelSerializer):
 
     class Meta:
         model = BloodTest
-        fields = ['id', 'user', 'test_date', 'test_results', 'notes','to_be_used_by']  
+        fields = ['id', 'user', 'test_date', 'test_results', 'notes','to_be_used_by','test_name']  
         read_only_fields = ["user"]
 
 
