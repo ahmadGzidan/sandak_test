@@ -1,3 +1,5 @@
+from django.conf.urls.static import static
+from django.conf import settings
 """
 URL configuration for core project.
 
@@ -23,3 +25,4 @@ urlpatterns = [
     path('medications/',include('Medications.urls')),
     path('HealthRecords/',include('HealthRecords.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
